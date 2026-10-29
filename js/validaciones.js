@@ -67,3 +67,41 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+
+// ==========================================
+// 3. LÓGICA DEL MODAL (CRUD Servicios)
+// ==========================================
+
+function abrirModal() {
+    const modal = document.getElementById("modalServicio");
+    if (modal) {
+        modal.classList.add("show"); // Agrega la clase que lo hace visible
+    }
+}
+
+function cerrarModal() {
+    const modal = document.getElementById("modalServicio");
+    if (modal) {
+        modal.classList.remove("show"); // Quita la clase
+        // Opcional: limpiar el formulario al cerrar
+        document.getElementById("formServicio").reset(); 
+    }
+}
+
+// Cerrar el modal si el usuario hace clic fuera de la cajita blanca
+window.addEventListener("click", function(evento) {
+    const modal = document.getElementById("modalServicio");
+    if (evento.target === modal) {
+        cerrarModal();
+    }
+});
+
+// Simular el guardado del formulario del Modal
+const formServicio = document.getElementById("formServicio");
+if (formServicio) {
+    formServicio.addEventListener("submit", function(evento) {
+        evento.preventDefault(); // Evita que la página se recargue
+        alert("Servicio guardado con éxito (Simulación).");
+        cerrarModal();
+    });
+}
