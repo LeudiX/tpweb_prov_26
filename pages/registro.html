@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Salón de Belleza</title>
+    <!-- Ojo aquí: como estamos en la carpeta 'pages', debemos retroceder con '../' para buscar la carpeta css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-image">
+            <img src="../img/logo-salon.png" alt="Logo Salón de Belleza">
+            <h2>Crea tu cuenta</h2>
+            <p>Únete y gestiona tus citas de belleza</p>
+        </div>
+
+        <div class="login-form">
+            <h2>Registrarse</h2>
+            
+            <!-- Formulario de Registro -->
+            <form action="#" method="POST" id="formRegistro">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="nombreReg" name="nombre" placeholder="Nombre completo" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="emailReg" name="email" placeholder="Correo electrónico" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="passReg" name="password" placeholder="Contraseña" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="passConfirm" name="confirm_password" placeholder="Confirmar Contraseña" required>
+                </div>
+
+                <button type="submit" class="btn-login">Registrarse</button>
+            </form>
+
+            <p class="registro-link">¿Ya tienes cuenta? <a href="../index.html">Inicia Sesión aquí</a></p>
+        </div>
+    </div>
+
+    <!-- Enlazamos el archivo JS -->
+    <script src="../js/validaciones.js"></script>
+</body>
+</html>

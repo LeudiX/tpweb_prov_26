@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Salón de Belleza</title>
+    <!-- Enlazamos el archivo CSS (lo crearemos después) -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Enlazamos FontAwesome para iconos (opcional, pero se ve muy bien) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Contenedor principal que centra todo en la pantalla -->
+    <div class="login-container">
+        
+        <!-- Lado izquierdo: Imagen o Logo del Salón -->
+        <div class="login-image">
+            <img src="img/logo-salon.png" alt="Logo Salón de Belleza">
+            <h2>Bienvenida</h2>
+            <p>Gestiona tus citas y servicios de belleza</p>
+        </div>
+
+        <!-- Lado derecho: Formulario -->
+        <div class="login-form">
+            <h2>Iniciar Sesión</h2>
+            
+            <!-- Formulario de Login -->
+            <form action="#" method="POST" id="formLogin">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="usuario" name="usuario" placeholder="Usuario o Correo" required>
+                </div>
+                
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                </div>
+
+                <!-- Enlace para recuperar contraseña -->
+                <div class="form-options">
+                    <a href="#">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <button type="submit" class="btn-login">Entrar</button>
+            </form>
+
+            <!-- Enlace a la página de registro -->
+            <p class="registro-link">¿No tienes cuenta? <a href="pages/registro.html">Regístrate aquí</a></p>
+        </div>
+    </div>
+
+    <!-- Enlazamos el archivo JS (lo crearemos después para las validaciones) -->
+    <script src="js/validaciones.js"></script>
+</body>
+</html>
