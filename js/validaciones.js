@@ -105,3 +105,40 @@ if (formServicio) {
         cerrarModal();
     });
 }
+
+// ==========================================
+// 4. LÓGICA DEL MODAL (CRUD Citas)
+// ==========================================
+
+function abrirModalCita() {
+    const modal = document.getElementById("modalCita");
+    if (modal) {
+        modal.classList.add("show");
+    }
+}
+
+function cerrarModalCita() {
+    const modal = document.getElementById("modalCita");
+    if (modal) {
+        modal.classList.remove("show");
+        document.getElementById("formCita").reset();
+    }
+}
+
+// Cerrar el modal de citas si se hace clic fuera
+window.addEventListener("click", function(evento) {
+    const modal = document.getElementById("modalCita");
+    if (evento.target === modal) {
+        cerrarModalCita();
+    }
+});
+
+// Simular guardado de la cita
+const formCita = document.getElementById("formCita");
+if (formCita) {
+    formCita.addEventListener("submit", function(evento) {
+        evento.preventDefault();
+        alert("Cita agendada con éxito (Simulación).");
+        cerrarModalCita();
+    });
+}

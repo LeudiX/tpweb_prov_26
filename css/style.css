@@ -542,3 +542,23 @@ table td {
     justify-content: flex-end;
     gap: 10px;
 }
+
+/* ==========================================
+   ESTILOS EXTRA PARA SELECTS (MODALES)
+   ========================================== */
+
+.input-group-modal select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    font-family: inherit; /* Para que use la misma fuente que el resto */
+}
+
+.input-group-modal select:focus {
+    border-color: #ad1457;
+}
