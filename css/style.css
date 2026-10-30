@@ -654,3 +654,13 @@ table td {
 @keyframes fadeOut {
     to { opacity: 0; }
 }
+
+/* Efecto hover en las filas de la tabla */
+tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+    background-color: #fce4ec; /* Color rosado muy suave al pasar el ratón */
+    cursor: pointer;
+}

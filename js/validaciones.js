@@ -144,6 +144,22 @@ const formCita = document.getElementById("formCita");
 if (formCita) {
     formCita.addEventListener("submit", function(evento) {
         evento.preventDefault();
+
+        // Obtener la fecha que el usuario seleccionó en el input
+        const inputFecha = document.querySelector('#formCita input[type="date"]');
+        const fechaSeleccionada = new Date(inputFecha.value);
+        
+        // Obtener la fecha y hora actual
+        const hoy = new Date();
+        hoy.setHours(0, 0, 0, 0); // Ponemos la hora a 0 para comparar solo los días
+
+        // Validación: Si la fecha es anterior a hoy
+        if (fechaSeleccionada < hoy) {
+            mostrarToast("Error: No puedes agendar una cita en una fecha pasada.", "error");
+            return; // Detiene la ejecución y no guarda
+        }
+
+        // Si pasa la validación, se guarda
         mostrarToast("Cita agendada con éxito.", "success");
         cerrarModalCita();
     });
