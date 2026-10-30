@@ -14,10 +14,11 @@
     <!-- Contenedor principal que centra todo en la pantalla -->
     <div class="login-container">
         
-        <!-- Lado izquierdo: Imagen o Logo del Salón -->
+                <!-- Lado izquierdo: Imagen o Logo del Salón -->
         <div class="login-image">
-            <img src="img/logo-salon.png" alt="Logo Salón de Belleza">
-            <h2>Bienvenida</h2>
+            <!-- ARREGLO: Ruta de imagen -->
+            <img src="../static/img/logo-salon.png" alt="Logo Salón de Belleza">
+            <h2>Bienvenida a Bella</h2>
             <p>Gestiona tus citas y servicios de belleza</p>
         </div>
 
@@ -49,10 +50,9 @@
             <p class="registro-link">¿No tienes cuenta? <a href="pages/registro.html">Regístrate aquí</a></p>
         </div>
     </div>
-
-    <!-- Enlazamos el archivo JS (lo crearemos después para las validaciones) -->
-    <script src="../static/js/validaciones.js"></script>
-        <!-- Contenedor para notificaciones elegantes -->
+            <!-- ARREGLO: Contenedor del Toast ANTES del script -->
     <div id="toast-container" class="toast-container"></div>
+
+    <script src="../static/js/validaciones.js"></script>
 </body>
 </html>

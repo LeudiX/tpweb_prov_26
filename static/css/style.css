@@ -41,8 +41,8 @@ body {
 }
 
 .login-image img {
-    width: 120px;
-    margin-bottom: 20px;
+    width: 200px; /* Aumentamos el tamaño */
+    margin-bottom: 25px; /* Un poco más de espacio con el texto de abajo */
 }
 
 /* Lado derecho (formulario) */
@@ -159,8 +159,11 @@ body {
     border-bottom: 1px solid #eee;
 }
 
-.sidebar-logo i {
-    font-size: 24px;
+/* Estilo para la nueva imagen del logo */
+.sidebar-logo-img {
+    width: 35px; /* Ajusta este número si quieres que sea más grande o pequeño */
+    height: 35px;
+    object-fit: contain; /* Para que la imagen no se deforme */
 }
 
 .sidebar-menu {
