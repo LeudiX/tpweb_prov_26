@@ -1,3 +1,28 @@
+// ==========================================
+// FUNCIÓN PARA MOSTRAR NOTIFICACIONES (TOAST)
+// Movida al principio para que esté disponible siempre
+// ==========================================
+function mostrarToast(mensaje, tipo = "success") {
+    const container = document.getElementById("toast-container");
+    if (!container) {
+        alert(mensaje); // Respaldo por si acaso
+        return;
+    }
+
+    const toast = document.createElement("div");
+    toast.className = `toast ${tipo}`;
+    
+    const icono = tipo === "success" ? "fa-check-circle" : "fa-exclamation-circle";
+    toast.innerHTML = `<i class="fas ${icono}"></i> <span>${mensaje}</span>`;
+    
+    container.appendChild(toast);
+
+    setTimeout(() => {
+        toast.style.animation = "fadeOut 0.5s ease forwards";
+        setTimeout(() => toast.remove(), 500);
+    }, 3000);
+}
+
 // Esperamos a que el documento HTML esté completamente cargado
 document.addEventListener("DOMContentLoaded", function() {
     
@@ -12,11 +37,10 @@ document.addEventListener("DOMContentLoaded", function() {
             const password = document.getElementById("password").value.trim();
 
             if (usuario === "" || password === "") {
-                evento.preventDefault(); // Detiene el envío del formulario
-                alert("Por favor, complete todos los campos del Login.");
+                evento.preventDefault();
+                mostrarToast("Por favor, complete todos los campos del Login.", "error");
             } else {
-                // Aquí iría la lógica para enviar los datos al servidor
-                alert("¡Iniciando sesión...!");
+                mostrarToast("¡Iniciando sesión...!", "success");
             }
         });
     }
@@ -33,37 +57,32 @@ document.addEventListener("DOMContentLoaded", function() {
             const pass = document.getElementById("passReg").value;
             const passConfirm = document.getElementById("passConfirm").value;
 
-            // Validación 1: Campos vacíos
             if (nombre === "" || email === "" || pass === "" || passConfirm === "") {
                 evento.preventDefault();
-                alert("Por favor, llene todos los campos.");
+                mostrarToast("Por favor, llene todos los campos.", "error");
                 return;
             }
 
-            // Validación 2: Formato de correo (Expresión regular básica)
             const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!regexEmail.test(email)) {
                 evento.preventDefault();
-                alert("Por favor, ingrese un correo electrónico válido.");
+                mostrarToast("Por favor, ingrese un correo electrónico válido.", "error");
                 return;
             }
 
-            // Validación 3: Las contraseñas coinciden
             if (pass !== passConfirm) {
                 evento.preventDefault();
-                alert("Las contraseñas no coinciden. Por favor, verifíquelas.");
+                mostrarToast("Las contraseñas no coinciden. Verifíquelas.", "error");
                 return;
             }
 
-            // Validación 4: Longitud de la contraseña
             if (pass.length < 6) {
                 evento.preventDefault();
-                alert("La contraseña debe tener al menos 6 caracteres.");
+                mostrarToast("La contraseña debe tener al menos 6 caracteres.", "error");
                 return;
             }
 
-            // Si pasa todas las validaciones
-            alert("¡Registro exitoso! Ya puedes iniciar sesión.");
+            mostrarToast("¡Registro exitoso! Ya puedes iniciar sesión.", "success");
         });
     }
 });
@@ -71,37 +90,30 @@ document.addEventListener("DOMContentLoaded", function() {
 // ==========================================
 // 3. LÓGICA DEL MODAL (CRUD Servicios)
 // ==========================================
-
 function abrirModal() {
     const modal = document.getElementById("modalServicio");
-    if (modal) {
-        modal.classList.add("show"); // Agrega la clase que lo hace visible
-    }
+    if (modal) modal.classList.add("show");
 }
 
 function cerrarModal() {
     const modal = document.getElementById("modalServicio");
     if (modal) {
-        modal.classList.remove("show"); // Quita la clase
-        // Opcional: limpiar el formulario al cerrar
-        document.getElementById("formServicio").reset(); 
+        modal.classList.remove("show");
+        const form = document.getElementById("formServicio");
+        if (form) form.reset(); 
     }
 }
 
-// Cerrar el modal si el usuario hace clic fuera de la cajita blanca
 window.addEventListener("click", function(evento) {
     const modal = document.getElementById("modalServicio");
-    if (evento.target === modal) {
-        cerrarModal();
-    }
+    if (evento.target === modal) cerrarModal();
 });
 
-// Simular el guardado del formulario del Modal
 const formServicio = document.getElementById("formServicio");
 if (formServicio) {
     formServicio.addEventListener("submit", function(evento) {
-        evento.preventDefault(); // Evita que la página se recargue
-        alert("Servicio guardado con éxito (Simulación).");
+        evento.preventDefault(); 
+        mostrarToast("Servicio guardado con éxito.", "success");
         cerrarModal();
     });
 }
@@ -109,36 +121,30 @@ if (formServicio) {
 // ==========================================
 // 4. LÓGICA DEL MODAL (CRUD Citas)
 // ==========================================
-
 function abrirModalCita() {
     const modal = document.getElementById("modalCita");
-    if (modal) {
-        modal.classList.add("show");
-    }
+    if (modal) modal.classList.add("show");
 }
 
 function cerrarModalCita() {
     const modal = document.getElementById("modalCita");
     if (modal) {
         modal.classList.remove("show");
-        document.getElementById("formCita").reset();
+        const form = document.getElementById("formCita");
+        if (form) form.reset();
     }
 }
 
-// Cerrar el modal de citas si se hace clic fuera
 window.addEventListener("click", function(evento) {
     const modal = document.getElementById("modalCita");
-    if (evento.target === modal) {
-        cerrarModalCita();
-    }
+    if (evento.target === modal) cerrarModalCita();
 });
 
-// Simular guardado de la cita
 const formCita = document.getElementById("formCita");
 if (formCita) {
     formCita.addEventListener("submit", function(evento) {
         evento.preventDefault();
-        alert("Cita agendada con éxito (Simulación).");
+        mostrarToast("Cita agendada con éxito.", "success");
         cerrarModalCita();
     });
 }
